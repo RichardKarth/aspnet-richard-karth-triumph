@@ -11,11 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Persistance\Contexts\" />
     <Folder Include="Persistance\Configurations\" />
     <Folder Include="Persistance\Entities\" />
-    <Folder Include="Persistance\Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
