@@ -1,10 +1,18 @@
 using Infrastructure.Extensions;
 using Application.Extensions;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRouting(options =>
+{
+    options.LowercaseUrls = true;
+
+});
+
+
 
 builder.Services.AddApplication(builder.Configuration, builder.Environment);
 builder.Services.AddInfrastructure(builder.Configuration, builder.Environment);

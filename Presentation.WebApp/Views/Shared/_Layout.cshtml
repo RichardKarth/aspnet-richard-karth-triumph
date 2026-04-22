@@ -16,12 +16,19 @@
 <body>
 
     <div class="app-layout">
-        <header>header</header>
+        <header>
+            @await Html.PartialAsync("~/Views/Shared/Partials/_HeaderSection.cshtml")
+
+            @if (IsSectionDefined("Hero"))
+                @await RenderSectionAsync("Hero")
+        </header>
         <main>
             @RenderBody()
             main
         </main>
-        <footer>footer</footer>
+        <footer>
+                @await Html.PartialAsync("~/Views/Shared/Partials/_FooterSection.cshtml")
+        </footer>
     </div>
    
       
