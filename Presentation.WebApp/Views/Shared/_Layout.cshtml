@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Presentation.WebApp</title>
+    <title>@pageTitle</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     
@@ -16,11 +16,12 @@
 <body>
 
     <div class="app-layout">
-        <header></header>
+        <header>header</header>
         <main>
             @RenderBody()
+            main
         </main>
-        <footer></footer>
+        <footer>footer</footer>
     </div>
    
       
