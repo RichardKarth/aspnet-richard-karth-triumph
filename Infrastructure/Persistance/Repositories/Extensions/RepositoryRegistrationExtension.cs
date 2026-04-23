@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace Infrastructure.Persistance.Repositories.Extensions
 {
-    public static class RepositoryRegistrationEextension
+    public static class RepositoryRegistrationExtension
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration, IHostEnvironment env)
         {
