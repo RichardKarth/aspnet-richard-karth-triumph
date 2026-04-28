@@ -1,8 +1,21 @@
-﻿@{
+﻿@model MembershipViewModel
+
+
+@{
     ViewData["Title"] = "Our Memberships";
 
 }
 
 <div>
     @ViewData["Title"]
+
+    @foreach (var item in Model.Memberships)
+    {
+       <div>
+           @item.Title
+           @item.Description
+           @item.Benefits
+           @item.MonthlyClasses
+       </div>
+    }
 </div>
