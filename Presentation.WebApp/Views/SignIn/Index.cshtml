@@ -1,10 +1,85 @@
 ﻿@model SignInViewModel
 
 @{
-    ViewData["Title"] = "Sign In";
+    ViewData["Title"] = "About";
+    ViewData["ShowHero"] = false;
 }
-@section Hero {
 
-    @await Html.PartialAsync("~/Views/Shared/Partials/_HeaderSection.cshtml")
+<div class="auth-container">
 
-}
+    <div class="auth-text">
+        <h1>Welcome Back!</h1>
+
+        <p>
+            Log in to continue your fitness journey with full access to your customized
+            program, training history, and progress tracking. Stay consistent, monitor
+            your development, and keep moving forward with the structure and support
+            built into your account.
+        </p>
+    </div>
+
+    <hr class="auth-divider">
+
+    <div class="auth-links">
+
+        <a href="#" class="auth-link">
+            <img src="~/images/google.png" alt="Google">
+        </a>
+
+        <a href="#" class="auth-link">
+            <img src="~/images/facebook.png" alt="Facebook">
+        </a>
+
+        <a href="#" class="auth-link">
+            <img src="~/images/github.png" alt="GitHub">
+        </a>
+
+    </div>
+
+    <div class="continue-divider">
+        <span></span>
+        <p>OR CONTINUE WITH</p>
+        <span></span>
+    </div>
+
+    <form class="auth-form">
+
+        <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" placeholder="Enter Email Address">
+        </div>
+
+        <div class="form-group">
+
+            <div class="password-label">
+                <label>Password</label>
+                <a href="#">Forgot your password?</a>
+            </div>
+
+            <input type="password" placeholder="Enter Password">
+        </div>
+
+        <button type="submit" class="auth-button">
+
+            <span></span>
+
+            <h3 class="continue-text">
+                Continue
+            </h3>
+
+            <i class="fa-solid fa-chevron-right arrow"></i>
+
+        </button>
+
+        <div class="terms-checkbox">
+            <input class="checkbox" type="checkbox" id="terms">
+
+            <label for="terms">
+                Accept user terms and conditions
+            </label>
+        </div>
+
+    </form>
+
+</div>
+
