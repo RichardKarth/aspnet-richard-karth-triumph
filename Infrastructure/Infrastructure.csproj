@@ -11,14 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Persistance\Contexts\" />
-    <Folder Include="Persistance\Configurations\" />
-    <Folder Include="Persistance\Entities\" />
-    <Folder Include="Persistance\Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameWorkCore.Sqlite" Version="10.0.7" />
     <PackageReference Include="Microsoft.EntityFrameWorkCore.SqlServer" Version="10.0.7" />
     <PackageReference Include="Microsoft.EntityFrameWorkCore.Tools" Version="10.0.7">

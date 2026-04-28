@@ -2,7 +2,7 @@
 
 namespace Presentation.WebApp.Controllers
 {
-    public class HomeController : Controller
+    public class SignInController : Controller
     {
         public IActionResult Index()
         {
