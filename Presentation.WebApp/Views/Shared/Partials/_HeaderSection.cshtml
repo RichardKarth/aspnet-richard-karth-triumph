@@ -29,8 +29,13 @@
           </ul>
     </nav>
 
-    <nav class="account-menu">
-        right
-    </nav>
+    <div class="account-menu">
+        <a asp-controller="BecomeMember" asp-action="Index">Become Member</a>
+        <a asp-controller="SignIn" asp-action="Index" class="sign-in-button">
+            <span>Sign In</span>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+        </a>
+    </div>
 
+   
 </section>
