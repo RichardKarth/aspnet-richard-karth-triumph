@@ -34,7 +34,14 @@
             </div>
 
             <p class="remove-info">If you like to cancel your account click below</p>
-            <a class="remove-account" href="#">Remove Account</a>
+
+            <form method="post" asp-controller="Account" asp-action="DeleteAccount">
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="remove-account">
+                    Remove Account
+                </button>
+            </form>
         </div>
 
         <div class="right-column">
