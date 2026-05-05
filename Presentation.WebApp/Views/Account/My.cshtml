@@ -162,10 +162,14 @@
                 <h2>Sign Out</h2>
                 <p>Are you sure you want to sign out?</p>
 
-                <button class="save-button" type="button">
-                    Sign Out
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+                <form method="post" asp-controller="Authentication" asp-action="SignOut">
+                    @Html.AntiForgeryToken()
+
+                    <button class="save-button" type="submit">
+                        Sign Out
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </form>
             </div>
 
             <div class="statistics-card" id="statistics">
