@@ -13,6 +13,7 @@ public class Member
     public string? Email { get; set; }
     public string? PhoneNumber { get; set; }
     public string? ProfileImageUrl { get; set; }
+    public string? MembershipId { get; set; }
     public DateTimeOffset CreatedAt { get; set; }
     public DateTimeOffset ModifiedAt { get; set; }
 
@@ -39,7 +40,7 @@ public class Member
             );
         return member;
     }
-    public static Member Create(string id, string userId, string? firstName, string? lastName, string? phoneNumber, string? profileImageUrl, DateTimeOffset createdAt, DateTimeOffset modifiedAt)
+    public static Member Create(string id, string userId, string? firstName, string? lastName, string? phoneNumber, string? profileImageUrl, string? membershipId, DateTimeOffset createdAt, DateTimeOffset modifiedAt)
     {
         var member = new Member(id, userId, createdAt)
         {
@@ -47,6 +48,7 @@ public class Member
             LastName = lastName,
             PhoneNumber = phoneNumber,
             ProfileImageUrl = profileImageUrl,
+            MembershipId = membershipId,
             ModifiedAt = modifiedAt
         };
         return member;
@@ -70,7 +72,14 @@ public class Member
         ProfileImageUrl = string.IsNullOrWhiteSpace(profileImageUrl) ? null : profileImageUrl.Trim();
         ModifiedAt = DateTimeOffset.UtcNow;
     }
-    public static Member Rehydrate(string id, string userId, string? firstName, string? lastName, string? email, string? phoneNumber, string? profileImageUrl, DateTimeOffset createdAt, DateTimeOffset modifiedAt)
+
+    public void ChangeMembership(string? membershipId)
+    {
+        MembershipId = string.IsNullOrWhiteSpace(membershipId) ? null : membershipId;
+        ModifiedAt = DateTimeOffset.UtcNow;
+    }
+
+    public static Member Rehydrate(string id, string userId, string? firstName, string? lastName, string? email, string? phoneNumber, string? profileImageUrl, string? membershipId, DateTimeOffset createdAt, DateTimeOffset modifiedAt)
     {
         var member = new Member(id, userId, createdAt)
         {
@@ -78,6 +87,7 @@ public class Member
             LastName = lastName,
             PhoneNumber = phoneNumber,
             ProfileImageUrl = profileImageUrl,
+            MembershipId = membershipId,
             ModifiedAt = modifiedAt
 
         };

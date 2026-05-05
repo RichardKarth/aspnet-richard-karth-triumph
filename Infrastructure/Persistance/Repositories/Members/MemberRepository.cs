@@ -26,6 +26,7 @@ public class MemberRepository(DataContext context) : RepositoryBase<Member, stri
         entity.PhoneNumber = model.PhoneNumber;
         entity.ModifiedAt = model.ModifiedAt;
         entity.ProfileImageUrl = model.ProfileImageUrl;
+        entity.MembershipId = model.MembershipId;
     }
     protected override Member ToDomainModel(MemberEntity entity)
     {
@@ -36,6 +37,7 @@ public class MemberRepository(DataContext context) : RepositoryBase<Member, stri
             entity.LastName,
             entity.PhoneNumber,
             entity.ProfileImageUrl,
+            entity.MembershipId,
             entity.CreatedAt,
             entity.ModifiedAt
             );

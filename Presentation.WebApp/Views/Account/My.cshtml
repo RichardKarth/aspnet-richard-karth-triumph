@@ -86,12 +86,58 @@
 
             <div class="account-form-card tab-content" id="membership">
                 <h2>My Membership</h2>
+                <div class="selected-membership">
+                    <h3>Current Membership</h3>
 
-                <div class="info-box">
-                    <h3>Premium Membership</h3>
-                    <p>Status: Active</p>
-                    <p>Expires: 2026-12-31</p>
+                    @if (string.IsNullOrWhiteSpace(Model.SelectedMembershipId))
+                    {
+                        <p>No membership selected.</p>
+                    }
+                    else
+                    {
+                        <p>@Model.SelectedMembershipTitle</p>
+                    }
                 </div>
+
+                <form method="post" asp-controller="Account" asp-action="UpdateMembership" class="membership-form">
+                    @Html.AntiForgeryToken()
+
+                    <div class="membership-box">
+                        <h3>Choose your plan</h3>
+                        <p>Select or change your current membership.</p>
+
+                        <div class="membership-options">
+                            <label class="membership-option">
+                                <input type="radio" asp-for="SelectedMembershipId" value="" />
+                                <span>
+                                    <strong>No membership</strong>
+                                    <small>Continue without a plan</small>
+                                </span>
+                            </label>
+
+                            <label class="membership-option">
+                                <input type="radio" asp-for="SelectedMembershipId" value="standard" />
+                                <span>
+                                    <strong>Standard Membership</strong>
+                                    <small>Basic gym access</small>
+                                </span>
+                            </label>
+
+                            <label class="membership-option">
+                                <input type="radio" asp-for="SelectedMembershipId" value="premium" />
+                                <span>
+                                    <strong>Premium Membership</strong>
+                                    <small>Full access + extra classes</small>
+                                </span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="save-button">
+                            Save Membership
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
 
             <div class="account-form-card tab-content" id="bookings">

@@ -46,5 +46,10 @@ internal class MemberEntityConfiguration : IEntityTypeConfiguration<MemberEntity
             .WithOne(x => x.Member)
             .HasForeignKey<MemberEntity>(x => x.UserId)
             .OnDelete(DeleteBehavior.Cascade);
+        builder
+            .HasOne(x => x.Membership)
+            .WithMany(x => x.Members)
+            .HasForeignKey(x => x.MembershipId)
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }
