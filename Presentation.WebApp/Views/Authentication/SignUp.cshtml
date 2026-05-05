@@ -1,0 +1,75 @@
+﻿@model RegisterEmailForm
+
+@{
+    ViewData["Title"] = "Become a Member";
+    ViewData["ShowHero"] = false;
+
+}
+
+<div class="auth-container">
+
+    <div class="auth-text">
+        <h1>Become a Member</h1>
+        <p>
+            Sign up to continue your fitness journey with full access to your customized program, training history, and progress tracking. Stay consistent, monitor your development, and keep moving forward with the structure and support built into your account.
+        </p>
+    </div>
+
+    <hr class="auth-divider">
+
+    <div class="auth-links">
+
+        <a href="#" class="auth-link">
+            <img src="~/images/google.png" alt="Google">
+        </a>
+
+        <a href="#" class="auth-link">
+            <img src="~/images/facebook.png" alt="Facebook">
+        </a>
+
+        <a href="#" class="auth-link">
+            <img src="~/images/github.png" alt="GitHub">
+        </a>
+    </div>
+    <div class="continue-divider">
+        <span></span>
+        <p>OR CONTINUE WITH</p>
+        <span></span>
+    </div>
+    <form class="auth-form" method="post" asp-controller="Authentication" asp-action="SignUp" novalidate>
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+        </div>
+
+        <span asp-validation-for="Email" class="text-danger"></span>
+
+        <div class="terms-checkbox">
+            <input class="checkbox" type="checkbox" id="terms">
+
+            <label for="terms">
+                Remember me
+            </label>
+        </div>
+
+        <button type="submit" class="auth-button">
+            <span></span>
+            <span class="continue-text">Continue</span>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+        </button>
+
+        
+    </form>
+
+    <div class="auth-container-p-tagg">
+        <p>
+            We will send a verification code to your email address.
+        </p>
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

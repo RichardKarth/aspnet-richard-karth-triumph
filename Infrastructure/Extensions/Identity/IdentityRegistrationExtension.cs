@@ -28,8 +28,8 @@ public static class IdentityRegistrationExtension
 
         services.ConfigureApplicationCookie(options =>
         {
-            options.LoginPath = "/MyAccount/Index";
-            options.AccessDeniedPath = "/MyAccount/AccessDenied";
+            options.LoginPath = "/authentication/sign-in";
+            options.AccessDeniedPath = "/authentication/sign-in";
             options.Cookie.Name = "CoreFitness.Auth";
         });
         services.AddScoped<IIdentityService, IdentityService>();
