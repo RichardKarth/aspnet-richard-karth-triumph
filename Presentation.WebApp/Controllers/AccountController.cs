@@ -124,4 +124,23 @@ public class AccountController(UserManager<ApplicationUser> userManager, IGetMem
 
         return RedirectToAction("My");
     }
+    [HttpPost("delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteAccount(CancellationToken ct = default)
+    {
+        var user = await userManager.GetUserAsync(User);
+
+        if (user is null)
+            return Challenge();
+
+        var result = await userManager.DeleteAsync(user);
+
+        if (!result.Succeeded)
+        {
+            ViewData["ErrorMessage"] = "Could not delete account.";
+            return RedirectToAction("My");
+        }
+
+        return RedirectToAction("Index", "Home");
+    }
 }
