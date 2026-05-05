@@ -10,11 +10,13 @@ namespace Presentation.WebApp.Controllers;
 
 [Authorize]
 [Route("account")]
-public class AccountController(UserManager<ApplicationUser> userManager, IGetMemberProfileService getMemberProfileService, IUpdateMemberProfileService updateMemberProfileService) : Controller
+public class AccountController(UserManager<ApplicationUser> userManager, IGetMemberProfileService getMemberProfileService, IUpdateMemberProfileService updateMemberProfileService, IUpdateMemberMembershipService updateMemberMembershipService
+) : Controller
 {
     [HttpGet("my")]
     public async Task<IActionResult> My(CancellationToken ct = default)
     {
+
         var user = await userManager.GetUserAsync(User);
         if(user is null)
         {
@@ -28,6 +30,16 @@ public class AccountController(UserManager<ApplicationUser> userManager, IGetMem
         var viewModel = new MyAccountViewModel
         {
             Email = user.Email ?? string.Empty,
+
+            SelectedMembershipId = profile.Value?.MembershipId,
+
+            SelectedMembershipTitle = profile.Value?.MembershipId switch
+            {
+                "standard" => "Standard Membership",
+                "premium" => "Premium Membership",
+                _ => "No membership"
+            },
+
             AboutMeForm = new MyProfileForm
             {
                 FirstName = profile.Value?.FirstName ?? string.Empty,
@@ -37,7 +49,7 @@ public class AccountController(UserManager<ApplicationUser> userManager, IGetMem
                 ProfileImageUrl = profile.Value?.ProfileImageUrl ?? string.Empty
             }
         };
-       
+
         return View(viewModel);
     }
 
@@ -89,5 +101,27 @@ public class AccountController(UserManager<ApplicationUser> userManager, IGetMem
         }
 
         return View(viewModel);
+    }
+    [HttpPost("membership")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> UpdateMembership(MyAccountViewModel viewModel, CancellationToken ct = default)
+    {
+        var user = await userManager.GetUserAsync(User);
+
+        if (user is null)
+            return Challenge();
+
+        var result = await updateMemberMembershipService.ExecuteAsync(
+            new UpdateMemberMembershipInput(user.Id, viewModel.SelectedMembershipId),
+            ct
+        );
+
+        if (!result.Success)
+        {
+            ViewData["ErrorMessage"] = result.ErrorMessage;
+            return RedirectToAction("My");
+        }
+
+        return RedirectToAction("My");
     }
 }
