@@ -1,7 +1,7 @@
 ﻿using Domain.Abstractions.Repositories;
 using Domain.Aggregates.Memberships;
 using Infrastructure.Persistance.Contexts;
-using Infrastructure.Persistance.Entities;
+using Infrastructure.Persistance.Entities.Memberships;
 
 namespace Infrastructure.Persistance.Repositories;
 

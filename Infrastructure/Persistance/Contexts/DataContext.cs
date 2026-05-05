@@ -1,7 +1,7 @@
 ﻿
 using Infrastructure.Identity;
-using Infrastructure.Persistance.Entities;
 using Infrastructure.Persistance.Entities.Members;
+using Infrastructure.Persistance.Entities.Memberships;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

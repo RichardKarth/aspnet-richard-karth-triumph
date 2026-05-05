@@ -12,6 +12,7 @@ builder.Services.AddRouting(options =>
     options.LowercaseUrls = true;
 
 });
+builder.Services.AddSession();
 
 builder.Services.AddApplication(builder.Configuration, builder.Environment);
 builder.Services.AddInfrastructure(builder.Configuration, builder.Environment);
@@ -22,6 +23,9 @@ await PersistanceDatabaseInitializer.InitializeAsync(app.Services, app.Environme
 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+app.UseSession();
+app.UseAuthentication();
 
 app.UseAuthorization();
 

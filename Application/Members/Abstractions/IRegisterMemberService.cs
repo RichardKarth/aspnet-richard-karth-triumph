@@ -5,5 +5,5 @@ namespace Application.Members.Abstractions;
 
 public interface IRegisterMemberService
 {
-    Task<Result<string?>> ExecuteAsync(RegisterMemberAccountInput input, CancellationToken ct = default);
+    Task<Result<string?>> ExecuteAsync(RegisterMemberInput input, CancellationToken ct = default);
 }

@@ -1,5 +1,4 @@
-﻿
-using Infrastructure.Persistance.Entities;
+﻿using Infrastructure.Persistance.Entities.Memberships;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
