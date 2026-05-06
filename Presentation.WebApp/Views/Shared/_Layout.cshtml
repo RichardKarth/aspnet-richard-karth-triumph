@@ -41,6 +41,11 @@
         </header>
         <main>
             @RenderBody()
+
+            @if (IsSectionDefined("Faq"))
+            {
+                @await RenderSectionAsync("Faq")
+            }
         </main>
         <footer>
                 @await Html.PartialAsync("~/Views/Shared/Partials/_FooterSection.cshtml")

@@ -7,6 +7,7 @@
     <h1>Customer Service</h1>
 
     <div class="contact-us-card">
+
         <div class="contact-us-left-side">
 
             <img src="~/images/contact-us-image 1.png" alt="Profile Picture">
@@ -79,74 +80,9 @@
         </div>
     </div>
 
-    <div class="faq-section">
-
-        <div class="faq-image">
-            <img src="~/images/faqs-image 1.png" alt="Gym training">
-        </div>
-
-        <div class="faq-content">
-            <span class="faq-badge">Frequently Asked Questions</span>
-
-            <h2>Common questions about gym and training</h2>
-
-            <div class="faq-item active">
-                <div class="faq-question">
-                    <h3>Q1. Do I need prior gym experience to Join CoreFitness?</h3>
-                    <button>
-                        <i class="fa-solid fa-chevron-up"></i>
-                    </button>
-                </div>
-
-                <p>
-                    No, CoreFitness is designed for all fitness levels. Our trainers guide beginners
-                    with proper techniques and structured workout plans to help them start safely and confidently.
-                </p>
-
-                <ul>
-                    <li>Every new member receives a personalized introduction to equipments</li>
-                    <li>Workouts are designed to grow with you, ensuring beginners can start safely.</li>
-                </ul>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Q2. What facilities are included with the membership?</h3>
-                    <button>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Q3. Can I try them gym before taking a membership?</h3>
-                    <button>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Q4. Are there group workout programs available?</h3>
-                    <button>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Q5. Is nutrition guidance included in the plans?</h3>
-                    <button>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
+    @section Faq {
+        @await Html.PartialAsync("~/Views/Shared/Partials/_FAQ.cshtml")
+    }
 
 </div>
+
