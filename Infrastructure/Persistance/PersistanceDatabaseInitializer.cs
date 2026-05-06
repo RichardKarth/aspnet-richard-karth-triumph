@@ -13,14 +13,11 @@ public static class PersistanceDatabaseInitializer
         using var scope = sp.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<DataContext>();
 
-        if (env.IsDevelopment())
-        {
-            await context.Database.EnsureCreatedAsync(ct);
-        }
-        else
-        {
-            await context.Database.MigrateAsync(ct);
-        }
+        
+        
+         await context.Database.EnsureCreatedAsync(ct);
+        
+        
 
         if (!context.Memberships.Any())
         {

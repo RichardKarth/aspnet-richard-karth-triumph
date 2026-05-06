@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class initDatabbase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -177,6 +177,7 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<string>(type: "TEXT", nullable: false),
                     UserId = table.Column<string>(type: "TEXT", nullable: false),
+                    MembershipId = table.Column<string>(type: "TEXT", nullable: true),
                     FirstName = table.Column<string>(type: "TEXT", maxLength: 100, nullable: true),
                     LastName = table.Column<string>(type: "TEXT", maxLength: 100, nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: true),
@@ -194,6 +195,12 @@ namespace Infrastructure.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Members_Memberships_MembershipId",
+                        column: x => x.MembershipId,
+                        principalTable: "Memberships",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -257,6 +264,11 @@ namespace Infrastructure.Migrations
                 name: "IX_Members_Id",
                 table: "Members",
                 column: "Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Members_MembershipId",
+                table: "Members",
+                column: "MembershipId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Members_UserId",
