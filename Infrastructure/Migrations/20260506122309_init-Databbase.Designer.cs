@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20260505110153_AddMembershipRelation")]
-    partial class AddMembershipRelation
+    [Migration("20260506122309_init-Databbase")]
+    partial class initDatabbase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
