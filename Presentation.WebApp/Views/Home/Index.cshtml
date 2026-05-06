@@ -1,4 +1,9 @@
-﻿@section Hero {
+﻿@{
+    ViewData["Title"] = "Home";
+    ViewData["ShowHero"] = true;
+}
+
+@section Hero {
     @await Html.PartialAsync("~/Views/Shared/Partials/_HeroSection.cshtml")
 }
 
@@ -62,19 +67,19 @@
 
     <div class="product-grid">
         <div class="product-card">
-            <img src="~/images/product-1.png" alt="Dumbbell">
+            <img src="~/images/product-image-1-prime 1.png" alt="Dumbbell">
         </div>
 
         <div class="product-card">
-            <img src="~/images/product-2.png" alt="Gym bag">
+            <img src="~/images/product-image-2-prime 1.png" alt="Gym bag">
         </div>
 
         <div class="product-card">
-            <img src="~/images/product-3.png" alt="Fitness tracker">
+            <img src="~/images/product-image-3-prime 1.png" alt="Fitness tracker">
         </div>
 
         <div class="product-card">
-            <img src="~/images/product-4.png" alt="Treadmill">
+            <img src="~/images/product-image-4-prime 1.png" alt="Treadmill">
         </div>
     </div>
 

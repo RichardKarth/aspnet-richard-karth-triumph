@@ -1,21 +1,125 @@
 ﻿@model MembershipViewModel
 
-
 @{
     ViewData["Title"] = "Our Memberships";
-
+    ViewData["ShowHero"] = false;
 }
 
-<div>
-    @ViewData["Title"]
+<div class="memberships-page">
 
-    @foreach (var item in Model.Memberships)
-    {
-       <div>
-           @item.Title
-           @item.Description
-           @item.Benefits
-           @item.MonthlyClasses
-       </div>
-    }
+    <h1>Our Membership Offers</h1>
+
+    <div class="membership-cards">
+
+        @foreach (var item in Model.Memberships)
+        {
+            <div class="membership-card">
+
+                <div class="membership-icon">
+                    <i class="fa-solid fa-dumbbell"></i>
+                </div>
+
+                <h2>@item.Title</h2>
+
+                <hr />
+
+                <p>@item.Description</p>
+
+                <ul>
+                    @if (item.Benefits != null && item.Benefits.Any())
+                    {
+                        @foreach (var benefit in item.Benefits)
+                        {
+                            <li>@benefit</li>
+                        }
+                    }
+                    else if (item.Title.Contains("Premium"))
+                    {
+                        <li>Priority Support & Premium Locker</li>
+                        <li>High-energy group fitness classes</li>
+                        <li>Motivating & supportive environment</li>
+                    }
+                    else
+                    {
+                        <li>Standard Locker</li>
+                        <li>High-energy group fitness classes</li>
+                        <li>Motivating & supportive environment</li>
+                    }
+                </ul>
+
+                <div class="membership-bottom-box">
+
+                    <div class="membership-price-box">
+
+                        <div>
+                            <strong>@item.Price</strong>
+                            <span>/monthly</span>
+
+                            <p>
+                                * Monthly @item.MonthlyClasses Classes
+                            </p>
+                        </div>
+
+                        <a href="#" class="join-btn">
+                            Join Now
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+
+                    </div>
+
+                    <p class="trial-text">
+                        Try Any Membership Free for 1 Week
+                    </p>
+
+                </div>
+
+            </div>
+        }
+
+        <div class="membership-cta-card">
+
+            <h2>Get Your Membership</h2>
+
+            <p>
+                Our memberships give you access to all equipment,
+                personalized training.
+            </p>
+
+            <h3>
+                Call Us At: +(46) 8 410 521 00
+            </h3>
+
+            <a href="#" class="call-btn">
+                Call Us Today!
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+
+            <img src="~/images/our-pricing-cta-image 1.png"
+                 alt="Training woman">
+
+        </div>
+
+    </div>
+
+    <div class="membership-info-row">
+
+        <div>
+            <i class="fa-regular fa-calendar-check"></i>
+            Get 30 day free trial
+        </div>
+
+        <div>
+            <i class="fa-regular fa-credit-card"></i>
+            No any hidden fees pay
+        </div>
+
+        <div>
+            <i class="fa-regular fa-clock"></i>
+            You can cancel anytime
+        </div>
+
+    </div>
+
 </div>
+
+@await Html.PartialAsync("~/Views/Shared/Partials/_FAQ.cshtml")
