@@ -1396,3 +1396,14 @@ footer {
     font-weight: 700;
     text-decoration: none;
 }
+.field-validation-error {
+    color: #ff3b30;
+    font-size: 14px;
+    margin-top: 8px;
+    display: block;
+}
+
+.validation-summary-errors {
+    color: #ff3b30;
+    margin-bottom: 20px;
+}
