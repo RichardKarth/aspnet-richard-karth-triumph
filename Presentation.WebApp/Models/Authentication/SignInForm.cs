@@ -6,6 +6,7 @@ namespace Presentation.WebApp.Models.Authentication
     {
         [Required(ErrorMessage = "Email is required.")]
         [Display(Name = "Email Address", Prompt = "Enter your email address")]
+        [EmailAddress(ErrorMessage = "Invalid email address.")]
         public string Email { get; set; } = null!;
 
         [Required(ErrorMessage = "Password is required.")]
